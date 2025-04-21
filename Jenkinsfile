@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    environment {
+        PYTHON_PATH = 'C:\\Users\\ranjeevkumar.pati\\AppData\\Local\\Programs\\Python\\Python311\\python.exe'
+    }
+
     stages {
         stage('Checkout') {
             steps {
@@ -11,8 +15,8 @@ pipeline {
 
         stage('Run Python Script') {
             steps {
-                // Run your Python script
-                bat 'C:\\Users\\ranjeevkumar.pati\\AppData\\Local\\Programs\\Python\\Python311\\python.exe sum.py'
+                // Run your Python script using the defined variable
+                bat "${PYTHON_PATH} sum.py"
             }
         }
     }
