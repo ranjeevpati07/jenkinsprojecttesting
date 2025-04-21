@@ -12,7 +12,7 @@ pipeline {
         stage('Run Python Script') {
             steps {
                 // Run your Python script
-                bat 'C:\Users\ranjeevkumar.pati\AppData\Local\Programs\Python\Python311\python.exe sum.py'
+                bat 'python sum.py'
             }
         }
     }
