@@ -1,20 +1,19 @@
 pipeline {
-  agent any
-  stages {
-    stage('Build') {
-      steps {
-        echo 'Building...'
-      }
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+                // Checkout source code from Git
+                checkout scm
+            }
+        }
+
+        stage('Run Python Script') {
+            steps {
+                // Run your Python script
+                bat 'python3 sum.py'
+            }
+        }
     }
-    stage('Test') {
-      steps {
-        echo 'Testing...'
-      }
-    }
-    stage('Deploy') {
-      steps {
-        echo 'Deploying...'
-      }
-    }
-  }
 }
